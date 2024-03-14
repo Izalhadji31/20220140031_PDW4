@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garenata Garage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to Garenata Garage</h1>
+        </header>
+    </div class= "image-center">
+        <img src="P.jpg" height="100px" width="130px" style="border-radius: 10px; box-shadow: 5px 20px 10px rgba(0, 0, 0, 0.1);">
+    </div>
+
+        <div id="loginForm">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Username"><br><br>
+            <input type="password" id="password" placeholder="Password"><br><br>
+            <button onclick="login()">Login</button>
+        </div>
+        <div id="services" style="display: none;">
+            <h2>Services</h2>
+            <ul>
+                <li><button onclick="showService('oil')">Change Oil</button></li>
+                <li><button onclick="showService('service')">Routine Service</button></li>
+                <li><button onclick="showService('repaint')">Repaint</button></li>
+            </ul>
+            <div id="serviceContent"></div>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            if (username && password) {
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('services').style.display = 'block';
+            } else {
+                alert('Please enter username and password');
+            }
+        }
+
+        function showService(serviceType) {
+            document.getElementById('serviceContent').innerHTML = 'You selected ' + serviceType + ' service.';
+        }
+    </script>
+</body>
+</html>
